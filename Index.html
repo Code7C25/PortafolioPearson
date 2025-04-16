@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Web | Jeremías Pearson</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JEREMÍAS PEARSON</h1>
+            <button id="toggle-theme">Cambiar Tema</button>
+        </header>
+        <!-- Sección de perfil -->
+        <div class="section" id="profile">
+            <h2>Jeremías Pearson</h2>
+            <img src="yo.jpg" alt="Foto de perfil" id="profile-img">
+        </div>
+        
+        <div class="grid">
+            <!-- Sección de contacto -->
+            <div class="section" id="contact">
+                <h2>Contacto</h2>
+                <p>Email: <a href="mailto:jereepearson4@gmail.com">jereepearson4@gmail.com</a></p>
+                <p>Teléfono: <a href="tel:+543547540797">+54 3547 540797</a></p>
+            </div>
+            
+            <!-- Sección de proyectos -->
+            <div class="section" id="skills">
+                <h2>Proyectos</h2>
+                <ul>
+                    <li>PYME</li>
+                    <li>Página web</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeButton = document.getElementById("toggle-theme");
+            let darkMode = localStorage.getItem("dark-mode") === "true";
+            
+            const toggleTheme = () => {
+                darkMode = !darkMode;
+                document.body.classList.toggle("dark-mode", darkMode);
+                localStorage.setItem("dark-mode", darkMode);
+                themeButton.textContent = darkMode ? "Modo Claro" : "Modo Oscuro";
+            };
+            
+            themeButton.addEventListener("click", toggleTheme);
+            if (darkMode) document.body.classList.add("dark-mode");
+        });
+    </script>
+</body>
+</html>
